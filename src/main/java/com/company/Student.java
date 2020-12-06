@@ -48,7 +48,7 @@ public class Student {
         }
     }
 
-    public static List <Student> readToListStudent(String fileName, String delimeter) throws IOException {
+    public static List <com.company.Student> readToListStudent(String fileName, String delimeter) throws IOException {
         File file = new File(fileName);
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
@@ -177,8 +177,11 @@ public class Student {
     }
 
     public static void findStudentByFaculty(List <Student> studentList, String facultyStudent) {
-        Stream <Student> java = studentList.stream()
+        List <Student> java = studentList.stream()
                 .filter(i -> i.getFaculty().equals(facultyStudent))
-
+                .collect(Collectors.toList());
+        System.out.println(java);
     }
+
+
 }

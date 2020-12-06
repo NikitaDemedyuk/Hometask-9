@@ -18,12 +18,12 @@ public class Main {
             Scanner in = new Scanner(System.in);
             int variantSee = in.nextInt();
             if (variantSee == 1) {
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
                 printListOfStudents(studentList);
-                System.out.println("\n");
+                System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
             }
 
-            System.out.println("1 - Find student by average mark\n2 - Find student by gender\n3 - Find a company by it's activity\n4 - " +
-                    "Find a company by it's date of foundation\n5 - Find a company by the number of staff\n6 - See the list of companies\n7 - Exit");
+            System.out.println("1 - Find student by average mark\n2 - Find student by gender\n3 - Find student by faculty\n");
             System.out.print("Enter: ");
             int variantChoise = in.nextInt();
             switch (variantChoise) {
@@ -36,14 +36,21 @@ public class Main {
                 case 2 -> {
                     System.out.println("Enter gender: (1 - male, 2 - female) : ");
                     int variantGender  = in.nextInt();
+                    //in.next();
                     System.out.println("\n");
                     findStudentByGender(studentList, variantGender);
                 }
 
                 case 3 -> {
-
+                    System.out.println("Enter faculty: ");
+                    String variantString  = in.nextLine();
+                    System.out.println("Faculty: " + variantString);
+                    System.out.println("\n");
+                    findStudentByFaculty(studentList, variantString);
                 }
             }
+
+            System.out.println("End of program\n");
         }
         catch (Exception ex) {
             System.out.println("Error :" + ex.getMessage());
