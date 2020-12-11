@@ -36,11 +36,6 @@ public class Student {
                 "| Favourite subject: " + this.favouriteSubject + "| Course: " + this.gender + "| Color of eyes: " + this.colorEyes);
     }
 
-    public static void printStudent1(Student student) {
-        System.out.println("Name: " + student.name + "| Gender: " + student.gender + "| Faculty: " + student.faculty + "| " +"| Average mark: " + student.averageMark +
-                "| Favourite subject: " + student.favouriteSubject + "| Course: " + student.gender + "| Color of eyes: " + student.colorEyes);
-    }
-
     public static void printListOfStudents(List <Student> studentList) {
         for (int i = 0; i < studentList.size(); ++i) {
             System.out.println("Name: " + studentList.get(i).name + "| Gender: " + studentList.get(i).gender + "| Faculty: " + studentList.get(i).faculty + "| " +"| Average mark: " + studentList.get(i).averageMark +
@@ -182,6 +177,29 @@ public class Student {
                 .collect(Collectors.toList());
         System.out.println(java);
     }
+
+    public static void findStudentByFavouriteSubject(List <Student> studentList, String favouriteSubjectStudent) {
+        List <Student> java = studentList.stream()
+                .filter(i -> i.getFavouriteSubject().equals(favouriteSubjectStudent))
+                .collect(Collectors.toList());
+        System.out.println(java);
+    }
+
+    public static void findStudentByCourse(List <Student> studentList, int courseStudent) {
+        List <Student> java = studentList.stream()
+                .filter(i -> i.getCourse() == courseStudent)
+                .collect(Collectors.toList());
+        System.out.println(java);
+    }
+
+    public static void findStudentByColorOfEyes(List <Student> studentList, String colorOfEyesStudent) {
+        List <Student> java = studentList.stream()
+                .filter(i -> i.getColorEyes().equals(colorOfEyesStudent))
+                .collect(Collectors.toList());
+        System.out.println(java);
+    }
+
+
 
 
 }
